@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pixie's Manga Corner</title>
+<style>
+  :root {
+    --ink: #1c1a1f;
+    --paper: #f6f2ec;
+    --paper-dim: #ece5da;
+    --accent: #c1442c;
+    --line: #d8d0c2;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Noto Sans", sans-serif;
+    line-height: 1.6;
+  }
+
+  header {
+    padding: 4.5rem 1.5rem 3rem;
+    text-align: center;
+    border-bottom: 3px solid var(--ink);
+    background:
+      repeating-linear-gradient(135deg, transparent, transparent 22px, rgba(28,26,31,0.035) 22px, rgba(28,26,31,0.035) 23px);
+  }
+
+  header .kicker {
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  header h1 {
+    font-family: Georgia, "Noto Serif", serif;
+    font-size: clamp(2.4rem, 8vw, 3.6rem);
+    margin: 0 0 0.8rem;
+    letter-spacing: -0.01em;
+  }
+
+  header p {
+    max-width: 32rem;
+    margin: 0 auto;
+    color: #4a4650;
+    font-size: 1.05rem;
+  }
+
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  section + section {
+    margin-top: 3.5rem;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.6rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .section-head h2 {
+    font-family: Georgia, "Noto Serif", serif;
+    font-size: 1.6rem;
+    margin: 0;
+  }
+
+  .section-head span {
+    font-size: 0.85rem;
+    color: #8a8390;
+  }
+
+  .review {
+    display: grid;
+    grid-template-columns: 76px 1fr;
+    gap: 1.1rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .review:last-child { border-bottom: none; }
+
+  .cover {
+    width: 76px;
+    height: 106px;
+    background: var(--paper-dim);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Georgia, serif;
+    font-size: 1.6rem;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .review h3 {
+    margin: 0 0 0.15rem;
+    font-size: 1.1rem;
+  }
+
+  .review .meta {
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .review p {
+    margin: 0;
+    font-size: 0.94rem;
+    color: #3a3641;
+  }
+
+  .stars {
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    font-size: 0.85rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1.5rem 3rem;
+    font-size: 0.85rem;
+    color: #8a8390;
+    border-top: 1px solid var(--line);
+  }
+
+  footer a {
+    color: var(--accent);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">manga · review · sketchbook</div>
+  <h1>Pixie's Manga Corner</h1>
+  <p>Би уншсан манга бүрээ энд тэмдэглэж, санал болгож байна. Заримдаа өөрийн зурсан юмаа ч нэмнэ.</p>
+</header>
+
+<main>
+
+  <section id="reviews">
+    <div class="section-head">
+      <h2>Сүүлд уншсан</h2>
+      <span>Reviews</span>
+    </div>
+
+    <div class="review">
+      <div class="cover">B</div>
+      <div>
+        <h3>Berserk</h3>
+        <div class="meta">Kentaro Miura · Dark Fantasy</div>
+        <div class="stars">★★★★★</div>
+        <p>Зураг, түүх хоёул хэт хүчтэй. Эхний ботиудаас л татдаг манга.</p>
+      </div>
+    </div>
+
+    <div class="review">
+      <div class="cover">C</div>
+      <div>
+        <h3>Chainsaw Man</h3>
+        <div class="meta">Tatsuki Fujimoto · Action</div>
+        <div class="stars">★★★★☆</div>
+        <p>Хурдан хэмнэлтэй, урьдчилан таашгүй өрнөлтэй — уншсаар байхад гараас тавихад хэцүү.</p>
+      </div>
+    </div>
+
+    <div class="review">
+      <div class="cover">V</div>
+      <div>
+        <h3>Vinland Saga</h3>
+        <div class="meta">Makoto Yukimura · Historical</div>
+        <div class="stars">★★★★★</div>
+        <p>Дайны тухай эхэлдэг ч, эцэст нь энх тайвны тухай болдог гүн гүнзгий түүх.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="art">
+    <div class="section-head">
+      <h2>Миний зурсан</h2>
+      <span>Sketchbook</span>
+    </div>
+    <p style="color:#8a8390; font-size:0.95rem;">Тун удахгүй эндээ зургуудаа нэмнэ.</p>
+  </section>
+
+</main>
+
+<footer>
+  Made by pixie182 · hosted with <a href="https://pages.github.com" target="_blank">GitHub Pages</a>
+</footer>
+
+</body>
+</html>
