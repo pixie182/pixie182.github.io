@@ -3,200 +3,178 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pixie's Manga Corner</title>
+<title>Pixie Manga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@600;700&family=Noto+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1c1a1f;
-    --paper: #f6f2ec;
-    --paper-dim: #ece5da;
-    --accent: #c1442c;
-    --line: #d8d0c2;
+    --bg: #1b1620;
+    --bg-raised: #2c2333;
+    --ink: #dce8ee;
+    --ink-dim: #9b8fa8;
+    --accent: #8350c4;
+    --accent-soft: #7392b5;
+    --line: #402b47;
   }
 
   * { box-sizing: border-box; }
 
   body {
     margin: 0;
-    background: var(--paper);
+    background: var(--bg);
     color: var(--ink);
-    font-family: "Hiragino Sans", "Noto Sans", sans-serif;
+    font-family: "Noto Sans", sans-serif;
     line-height: 1.6;
   }
 
   header {
-    padding: 4.5rem 1.5rem 3rem;
     text-align: center;
-    border-bottom: 3px solid var(--ink);
-    background:
-      repeating-linear-gradient(135deg, transparent, transparent 22px, rgba(28,26,31,0.035) 22px, rgba(28,26,31,0.035) 23px);
-  }
-
-  header .kicker {
-    font-size: 0.85rem;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    margin-bottom: 0.6rem;
+    border-bottom: 1px solid var(--line);
   }
 
   header h1 {
-    font-family: Georgia, "Noto Serif", serif;
-    font-size: clamp(2.4rem, 8vw, 3.6rem);
-    margin: 0 0 0.8rem;
+    font-family: "Noto Serif", serif;
+    font-weight: 700;
+    font-size: clamp(2.2rem, 9vw, 3.4rem);
+    margin: 0;
+    padding: 2.2rem 1.5rem 2.5rem;
     letter-spacing: -0.01em;
+    color: #eef2f0;
   }
 
-  header p {
-    max-width: 32rem;
-    margin: 0 auto;
-    color: #4a4650;
-    font-size: 1.05rem;
+  .cover-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .cover-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   main {
-    max-width: 780px;
+    max-width: 720px;
     margin: 0 auto;
-    padding: 3rem 1.5rem 5rem;
-  }
-
-  section + section {
-    margin-top: 3.5rem;
+    padding: 2.5rem 1.2rem 5rem;
   }
 
   .section-head {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    border-bottom: 2px solid var(--ink);
-    padding-bottom: 0.6rem;
-    margin-bottom: 1.6rem;
+    margin-bottom: 1.2rem;
   }
 
   .section-head h2 {
-    font-family: Georgia, "Noto Serif", serif;
-    font-size: 1.6rem;
+    font-family: "Noto Serif", serif;
+    font-weight: 700;
+    font-size: 1.4rem;
     margin: 0;
   }
 
   .section-head span {
-    font-size: 0.85rem;
-    color: #8a8390;
+    font-size: 0.8rem;
+    color: var(--ink-dim);
   }
 
-  .review {
-    display: grid;
-    grid-template-columns: 76px 1fr;
-    gap: 1.1rem;
-    padding: 1.2rem 0;
-    border-bottom: 1px solid var(--line);
+  .chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
   }
 
-  .review:last-child { border-bottom: none; }
+  .chapter-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1rem;
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color 0.15s ease;
+  }
+
+  .chapter-card:active {
+    border-color: var(--accent);
+  }
 
   .cover {
-    width: 76px;
-    height: 106px;
-    background: var(--paper-dim);
+    width: 52px;
+    height: 68px;
+    border-radius: 6px;
+    background: linear-gradient(160deg, #402b47, #2c2333);
     border: 1px solid var(--line);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: Georgia, serif;
-    font-size: 1.6rem;
-    color: var(--accent);
+    font-family: "Noto Serif", serif;
+    font-size: 1.3rem;
+    color: var(--accent-soft);
     flex-shrink: 0;
   }
 
-  .review h3 {
-    margin: 0 0 0.15rem;
-    font-size: 1.1rem;
+  .chapter-card h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+    color: #eef2f0;
   }
 
-  .review .meta {
-    font-size: 0.8rem;
-    color: var(--accent);
-    margin-bottom: 0.4rem;
-  }
-
-  .review p {
+  .chapter-card p {
     margin: 0;
-    font-size: 0.94rem;
-    color: #3a3641;
+    font-size: 0.82rem;
+    color: var(--ink-dim);
   }
 
-  .stars {
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    font-size: 0.85rem;
+  .chapter-card .arrow {
+    margin-left: auto;
+    color: var(--accent-soft);
+    font-size: 1.1rem;
   }
 
   footer {
     text-align: center;
     padding: 2rem 1.5rem 3rem;
-    font-size: 0.85rem;
-    color: #8a8390;
+    font-size: 0.82rem;
+    color: var(--ink-dim);
     border-top: 1px solid var(--line);
   }
 
-  footer a {
-    color: var(--accent);
-  }
+  footer a { color: var(--accent-soft); }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="kicker">manga · review · sketchbook</div>
-  <h1>Pixie's Manga Corner</h1>
-  <p>Би уншсан манга бүрээ энд тэмдэглэж, санал болгож байна. Заримдаа өөрийн зурсан юмаа ч нэмнэ.</p>
+  <div class="cover-thumb"><img src="IMG_3458.jpeg" alt="Cover"></div>
+  <h1>PIXIE MANGA</h1>
 </header>
 
 <main>
-
-  <section id="reviews">
+  <section>
     <div class="section-head">
-      <h2>Сүүлд уншсан</h2>
-      <span>Reviews</span>
+      <h2>Бүлгүүд</h2>
+      <span>Chapters</span>
     </div>
 
-    <div class="review">
-      <div class="cover">B</div>
-      <div>
-        <h3>Berserk</h3>
-        <div class="meta">Kentaro Miura · Dark Fantasy</div>
-        <div class="stars">★★★★★</div>
-        <p>Зураг, түүх хоёул хэт хүчтэй. Эхний ботиудаас л татдаг манга.</p>
-      </div>
-    </div>
-
-    <div class="review">
-      <div class="cover">C</div>
-      <div>
-        <h3>Chainsaw Man</h3>
-        <div class="meta">Tatsuki Fujimoto · Action</div>
-        <div class="stars">★★★★☆</div>
-        <p>Хурдан хэмнэлтэй, урьдчилан таашгүй өрнөлтэй — уншсаар байхад гараас тавихад хэцүү.</p>
-      </div>
-    </div>
-
-    <div class="review">
-      <div class="cover">V</div>
-      <div>
-        <h3>Vinland Saga</h3>
-        <div class="meta">Makoto Yukimura · Historical</div>
-        <div class="stars">★★★★★</div>
-        <p>Дайны тухай эхэлдэг ч, эцэст нь энх тайвны тухай болдог гүн гүнзгий түүх.</p>
-      </div>
+    <div class="chapter-list">
+      <a class="chapter-card" href="chapter1.html">
+        <div class="cover">01</div>
+        <div>
+          <h3>Бүлэг 1</h3>
+          <p>Тун удахгүй</p>
+        </div>
+        <div class="arrow">›</div>
+      </a>
     </div>
   </section>
-
-  <section id="art">
-    <div class="section-head">
-      <h2>Миний зурсан</h2>
-      <span>Sketchbook</span>
-    </div>
-    <p style="color:#8a8390; font-size:0.95rem;">Тун удахгүй эндээ зургуудаа нэмнэ.</p>
-  </section>
-
 </main>
 
 <footer>
